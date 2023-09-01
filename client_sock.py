@@ -1,7 +1,24 @@
+import tkinter as tk
 import socket
 import threading
 
-nickname = input("Enter the your name: ")
+root = tk.Tk()
+
+root.minsize(200, 200)
+root.maxsize(800, 600)
+
+entry = tk.Entry(root)
+entry.pack()
+
+def on_btn_ok_click():
+    nickname = entry.get()
+    print(nickname)
+
+btn_ok = tk.Button(root, text='OK', command=on_btn_ok_click)
+btn_ok.pack()
+
+root.mainloop()
+
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(('127.0.0.1', 50001))
