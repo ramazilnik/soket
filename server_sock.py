@@ -5,7 +5,7 @@ host = "127.0.0.1"
 port = 50001
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(host, port)
+server.bind((host, port))
 server.listen()
 
 clients = []
@@ -29,7 +29,7 @@ def handle(client):
             nicknames.remove(nickname)
             break
 
-def recive()
+def receive():
     while True:
         client, address = server.accept()
         print("Connected with {}".format(str(address)))
@@ -47,5 +47,5 @@ def recive()
         thread.start()
 
 print("Server is listening...")
-recive()
+receive()
 
